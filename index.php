@@ -33,6 +33,7 @@
                     $firstname = "Samir";
                     $score = 327;
                 ?>
+                <?= "<p>$firstname a obtenu $score points à cette partie.</p>" ?>
             </div>
         </section>
 
