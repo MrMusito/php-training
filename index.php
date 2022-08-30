@@ -53,9 +53,9 @@
                 ?>
                 <ul>
                     <?php
-                    echo "<li>$nameProduct1 : $priceProduct1</li>";
-                    echo "<li>$nameProduct2 : $priceProduct2</li>";
-                    echo "<li>$nameProduct3 : $priceProduct3</li>";
+                        echo "<li>$nameProduct1 : $priceProduct1</li>";
+                        echo "<li>$nameProduct2 : $priceProduct2</li>";
+                        echo "<li>$nameProduct3 : $priceProduct3</li>";
                     ?>
                 </ul>
             </div>
@@ -71,6 +71,10 @@
                  $quantityProduct2 = 10;
                  $quantityProduct3 = 4;
              ?>
+             <?php
+                $total = ($quantityProduct1 * $priceProduct1 + $quantityProduct2 * $priceProduct2 + $quantityProduct3 * $priceProduct3) * 0.9;
+                echo "<p>Le prix total de la commande est de : $total</p>"
+             ?>
             </div>
         </section>
 
@@ -80,6 +84,9 @@
             <h2 class="exercice-ttl">Question 4</h2>
             <p class="exercice-txt">Affichez le prix le plus élevé des 3 produits ci-dessus.</p>
             <div class="exercice-sandbox">
+                <?php
+                    echo max($priceProduct1, $priceProduct2, $priceProduct3);
+                ?>
 
             </div>
         </section>
@@ -94,6 +101,19 @@
             <h2 class="exercice-ttl">Question 5</h2>
             <p class="exercice-txt">Affichez dans une liste HTML le nom des produits de la question 2 qui sont présents dans la phrase : "<?=$text1?>"</p>
             <div class="exercice-sandbox">
+                <ul>
+                    <?php
+                        if (str_contains($text1, $nameProduct1)) {
+                            echo "<li>$nameProduct1</li>";
+                        }
+                        if (str_contains($text1, $nameProduct2)) {
+                            echo "<li>$nameProduct2</li>";
+                        }
+                        if (str_contains($text1, $nameProduct3)) {
+                            echo "<li>$nameProduct3</li>";
+                        }
+                    ?>
+                </ul>
 
             </div>
         </section>
@@ -105,17 +125,24 @@
             <div class="exercice-sandbox">
                 <?php
 
-                $namePlayer1 = "Tim";
-                $scorePlayer1 = 67;
-                $namePlayer2 = "Morgan";
-                $scorePlayer2 = 198;
-                $namePlayer3 = "Hamed";
-                $scorePlayer3 = 21;
-                $namePlayer4 = "Camille";
-                $scorePlayer4 = 134;
-                $namePlayer5 = "Kevin";
-                $scorePlayer5 = 103;
+                    $namePlayer1 = "Tim";
+                    $scorePlayer1 = 67;
+                    $namePlayer2 = "Morgan";
+                    $scorePlayer2 = 198;
+                    $namePlayer3 = "Hamed";
+                    $scorePlayer3 = 21;
+                    $namePlayer4 = "Camille";
+                    $scorePlayer4 = 134;
+                    $namePlayer5 = "Kevin";
+                    $scorePlayer5 = 103;
 
+                ?>
+                <?php
+                    echo $scorePlayer1 > 50 && $scorePlayer1 < 150 ? "$namePlayer1 " : "";
+                    echo $scorePlayer2 > 50 && $scorePlayer2 < 150 ? "$namePlayer2 " : "";
+                    echo $scorePlayer3 > 50 && $scorePlayer3 < 150 ? "$namePlayer3 " : "";
+                    echo $scorePlayer4 > 50 && $scorePlayer4 < 150 ? "$namePlayer4 " : "";
+                    echo $scorePlayer5 > 50 && $scorePlayer5 < 150 ? "$namePlayer5 " : "";
                 ?>
             </div>
         </section>
@@ -126,6 +153,22 @@
             <h2 class="exercice-ttl">Question 7</h2>
             <p class="exercice-txt">En réutilisant les scores de la question pécédente, afficher le nom du joueur ayant obtenu le plus grand score.</p>
             <div class="exercice-sandbox">
+                <?php
+                    $winner = "";
+                    if ($scorePlayer1 > $scorePlayer2) {
+                        $winner = $namePlayer1;
+                    } else ($winner = $namePlayer2);
+                    if ($scorePlayer2 > $scorePlayer3) {
+                        $winner = $namePlayer2;
+                    } else ($winner = $namePlayer3);
+                    if ($scorePlayer3 > $scorePlayer4) {
+                        $winner = $namePlayer3;
+                    } else ($winner = $namePlayer4);
+                    if ($scorePlayer4 > $scorePlayer5) {
+                        $winner = $namePlayer4;
+                    } else ($winner = $namePlayer5);
+                    echo $winner
+                ?>
                 
             </div>
         </section>
