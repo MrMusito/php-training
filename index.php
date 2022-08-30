@@ -157,16 +157,24 @@
                     $winner = "";
                     if ($scorePlayer1 > $scorePlayer2) {
                         $winner = $namePlayer1;
-                    } else ($winner = $namePlayer2);
+                    } else {
+                        $winner = $namePlayer2;
+                    };
                     if ($scorePlayer2 > $scorePlayer3) {
                         $winner = $namePlayer2;
-                    } else ($winner = $namePlayer3);
+                    } else {
+                        $winner = $namePlayer3;
+                    };
                     if ($scorePlayer3 > $scorePlayer4) {
                         $winner = $namePlayer3;
-                    } else ($winner = $namePlayer4);
+                    } else {
+                        $winner = $namePlayer4;
+                    };
                     if ($scorePlayer4 > $scorePlayer5) {
                         $winner = $namePlayer4;
-                    } else ($winner = $namePlayer5);
+                    } else {
+                        $winner = $namePlayer5;
+                    };
                     echo $winner
                 ?>
                 
@@ -179,7 +187,35 @@
             <h2 class="exercice-ttl">Question 8</h2>
             <p class="exercice-txt">Affichez le prénom du joueur le plus long en nombre de caractères.</p>
             <div class="exercice-sandbox">
-                
+                <?php
+                    $player1 = strlen($namePlayer1);
+                    $player2 = strlen($namePlayer2);
+                    $player3 = strlen($namePlayer3);
+                    $player4 = strlen($namePlayer4);
+                    $player5 = strlen($namePlayer5);
+                    $longestName = "";
+                    if ($player1 > $player2) {
+                        $longestName = $namePlayer1;
+                    } else {
+                        $longestName = $namePlayer2;
+                    };
+                    if ($player2 > $player3) {
+                        $longestName = $namePlayer2;
+                    } else {
+                        $longestName = $namePlayer3;
+                    };
+                    if ($player3 > $player4) {
+                        $longestName = $namePlayer3;
+                    } else {
+                        $longestName = $namePlayer4;
+                    };
+                    if ($player4 > $player5) {
+                        $longestName = $namePlayer4;
+                    } else {
+                        $longestName = $namePlayer5;
+                    };
+                    echo $longestName;
+                ?>
             </div>
         </section>
 
@@ -195,9 +231,18 @@
                 <li>Kevin : 31 ans</li>
             </ul>
             <p class="exercice-txt">Afficher la valeur de cette variable avec tous les détails.</p>
-            <div class="exercice-sandbox">
-                
-            </div>
+            <pre class="exercice-sandbox">
+                <?php
+                    $players = [
+                        [$namePlayer1 =>  $scorePlayer1, "Age" => 25 ],
+                        [$namePlayer2 =>  $scorePlayer2, "Age" => 34 ],
+                        [$namePlayer3 =>  $scorePlayer3, "Age" => 27 ],
+                        [$namePlayer4 =>  $scorePlayer4, "Age" => 47 ],
+                        [$namePlayer5 =>  $scorePlayer5, "Age" => 31 ]
+                        ];
+                        var_dump($players);
+                ?>
+            </pre>
         </section>
 
         <!-- QUESTION 10 -->
