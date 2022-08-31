@@ -26,14 +26,14 @@
         <!-- QUESTION 1 -->
         <section class="exercice">
             <h2 class="exercice-ttl">Question 1</h2>
-            <p class="exercice-txt">Evrivez la phrase suivante dans une balise HTML P en utilisant les 2 variables ci-dessous :</p>
+            <p class="exercice-txt">Ecrivez la phrase suivante dans une balise HTML P en utilisant les 2 variables ci-dessous :</p>
             <p class="exercice-txt">"<i>Firstname</i> a obtenu <i>score</i> points à cette partie."</p>
             <div class="exercice-sandbox">
                 <?php
                     $firstname = "Samir";
                     $score = 327;
                 ?>
-                <?= "<p>$firstname a obtenu $score points à cette partie.</p>" ?>
+                <?= "<p>$firstname a obtenu $score points à cette partie.</p>" ?>;
             </div>
         </section>
 
@@ -137,13 +137,15 @@
                     $scorePlayer5 = 103;
 
                 ?>
+                <ul>
                 <?php
-                    echo $scorePlayer1 > 50 && $scorePlayer1 < 150 ? "$namePlayer1 " : "";
-                    echo $scorePlayer2 > 50 && $scorePlayer2 < 150 ? "$namePlayer2 " : "";
-                    echo $scorePlayer3 > 50 && $scorePlayer3 < 150 ? "$namePlayer3 " : "";
-                    echo $scorePlayer4 > 50 && $scorePlayer4 < 150 ? "$namePlayer4 " : "";
-                    echo $scorePlayer5 > 50 && $scorePlayer5 < 150 ? "$namePlayer5 " : "";
+                    echo $scorePlayer1 > 50 && $scorePlayer1 < 150 ? "<li>$namePlayer1</li>" : "";
+                    echo $scorePlayer2 > 50 && $scorePlayer2 < 150 ? "<li>$namePlayer2</li>" : "";
+                    echo $scorePlayer3 > 50 && $scorePlayer3 < 150 ? "<li>$namePlayer3</li>" : "";
+                    echo $scorePlayer4 > 50 && $scorePlayer4 < 150 ? "<li>$namePlayer4</li>" : "";
+                    echo $scorePlayer5 > 50 && $scorePlayer5 < 150 ? "<li>$namePlayer5</li>" : "";
                 ?>
+                </ul>
             </div>
         </section>
 
@@ -154,28 +156,26 @@
             <p class="exercice-txt">En réutilisant les scores de la question pécédente, afficher le nom du joueur ayant obtenu le plus grand score.</p>
             <div class="exercice-sandbox">
                 <?php
-                    $winner = "";
-                    if ($scorePlayer1 > $scorePlayer2) {
-                        $winner = $namePlayer1;
-                    } else {
+                    $score = $scorePlayer1;
+                    $winner = $namePlayer1;
+                    if ($scorePlayer2 > $score) {
                         $winner = $namePlayer2;
-                    };
-                    if ($scorePlayer2 > $scorePlayer3) {
-                        $winner = $namePlayer2;
-                    } else {
+                        $score = $scorePlayer2;
+                    } 
+                    if ($scorePlayer3 > $score) {
                         $winner = $namePlayer3;
-                    };
-                    if ($scorePlayer3 > $scorePlayer4) {
-                        $winner = $namePlayer3;
-                    } else {
+                        $score = $scorePlayer3;
+                    } 
+                    if ($scorePlayer4 > $score) {
                         $winner = $namePlayer4;
-                    };
-                    if ($scorePlayer4 > $scorePlayer5) {
-                        $winner = $namePlayer4;
-                    } else {
+                        $score = $scorePlayer4;
+                    } 
+                    if ($scorePlayer5 > $score) {
                         $winner = $namePlayer5;
-                    };
-                    echo $winner
+                        $score = $scorePlayer5;
+                    } 
+                    
+                    echo "<p>Le meilleur est $winner avec $score points."
                 ?>
                 
             </div>
@@ -234,11 +234,11 @@
             <pre class="exercice-sandbox">
                 <?php
                     $players = [
-                        [$namePlayer1 =>  $scorePlayer1, "Age" => 25 ],
-                        [$namePlayer2 =>  $scorePlayer2, "Age" => 34 ],
-                        [$namePlayer3 =>  $scorePlayer3, "Age" => 27 ],
-                        [$namePlayer4 =>  $scorePlayer4, "Age" => 47 ],
-                        [$namePlayer5 =>  $scorePlayer5, "Age" => 31 ]
+                        ["firstname" => $namePlayer1, "score" =>  $scorePlayer1, "Age" => 25 ],
+                        ["firstname" => $namePlayer2, "score" =>  $scorePlayer2, "Age" => 34 ],
+                        ["firstname" => $namePlayer3, "score" =>  $scorePlayer3, "Age" => 27 ],
+                        ["firstname" => $namePlayer4, "score" =>  $scorePlayer4, "Age" => 47 ],
+                        ["firstname" => $namePlayer5, "score" =>  $scorePlayer5, "Age" => 31 ]
                         ];
                         var_dump($players);
                 ?>
@@ -250,7 +250,12 @@
             <h2 class="exercice-ttl">Question 10</h2>
             <p class="exercice-txt">Afficher le prénom et l'âge du joueur le plus jeune dans une phrase dans une balise HTML P.</p>
             <div class="exercice-sandbox">
-
+                <?php
+                    
+                        foreach($players as $player) { 
+                            if ($player["age"] )
+                        }
+                ?>
             </div>
         </section>
 
