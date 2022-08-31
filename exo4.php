@@ -155,8 +155,11 @@ $arrayB = [85, "toi", 95, "la", 65, 94, 85, "avec", 37, "chat"];
             <p class="exercice-txt">Déclarer une fonction qui prend en paramètre 2 tableaux et retourne un tableau représentant l'intersection des 2</p>
             <div class="exercice-sandbox">
                 <?php
-                    $arrayC = array_intersect($arrayA, $arrayB);
+                function intersect2Arrays($arr1, $arr2){
+                    $arrayC = array_intersect($arr1, $arr2);
                     var_dumb($arrayC);
+                }
+                intersect2Arrays($arrayA, $arrayB);
                 ?>
             </div>
         </section>
