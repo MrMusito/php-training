@@ -36,7 +36,16 @@ $arrayB = [85, "toi", 95, "la", 65, 94, 85, "avec", 37, "chat"];
             <h2 class="exercice-ttl">Question 1</h2>
             <p class="exercice-txt">Déclarer une fonction qui prend en paramètre un tableau et retourne la chaîne de caractère HTML permettant d'afficher les valeurs du tableau sous la forme d'une liste.</p>
             <div class="exercice-sandbox">
-
+                <?php
+                    function makeAList($arr) {
+                        echo "<ul>";
+                        foreach($arr as $val) {
+                            echo "<li>$val</li>";
+                        }
+                        echo "</ul>";
+                    }
+                    makeAList($array);
+                ?>
             </div>
         </section>
 
@@ -45,7 +54,7 @@ $arrayB = [85, "toi", 95, "la", 65, 94, 85, "avec", 37, "chat"];
             <h2 class="exercice-ttl">Question 2</h2>
             <p class="exercice-txt">Déclarer une fonction qui prend en paramètre un tableau d'entiers et retourne uniquement les valeurs paires. Afficher les valeurs du tableau sous la forme d'une liste HTML.</p>
             <div class="exercice-sandbox">
-
+                    
             </div>
         </section>
 
