@@ -113,7 +113,20 @@ $arrayB = [85, "toi", 95, "la", 65, 94, 85, "avec", 37, "chat"];
             <h2 class="exercice-ttl">Question 4</h2>
             <p class="exercice-txt">Déclarer une fonction qui prend en paramètre un tableau d'entiers et un entier. La fonction doit retourner les valeurs du tableau divisées par le second paramètre</p>
             <div class="exercice-sandbox">
-                
+                <?php
+                    function divideValuesByIt1($arr, $it) {
+                        return ($arr / $it);
+                    }
+                    function divideValuesByIt($arr, $it) {
+                        echo "<ul>";
+                        foreach($arr as $val) {
+                            $output = $val / $it;
+                            echo "<li>$output</li>";
+                        }
+                        echo "</ul>";
+                    }
+                    divideValuesByIt($array, 2);
+                ?>
             </div>
         </section>
 
