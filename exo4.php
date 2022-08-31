@@ -169,7 +169,13 @@ $arrayB = [85, "toi", 95, "la", 65, 94, 85, "avec", 37, "chat"];
             <h2 class="exercice-ttl">Question 7</h2>
             <p class="exercice-txt">Déclarer une fonction qui prend en paramètre 2 tableaux et retourne un tableau des valeurs du premier tableau qui ne sont pas dans le second</p>
             <div class="exercice-sandbox">
-
+                <?php
+                function diffBetween2Arrays($arr1, $arr2){
+                    $arrayD = array_diff($arr1, $arr2);
+                    var_dumb($arrayD);
+                }
+                diffBetween2Arrays($arrayA, $arrayB);
+                ?>
             </div>
         </section>
 
