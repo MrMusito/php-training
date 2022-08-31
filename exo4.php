@@ -37,6 +37,9 @@ $arrayB = [85, "toi", 95, "la", 65, 94, 85, "avec", 37, "chat"];
             <p class="exercice-txt">Déclarer une fonction qui prend en paramètre un tableau et retourne la chaîne de caractère HTML permettant d'afficher les valeurs du tableau sous la forme d'une liste.</p>
             <div class="exercice-sandbox">
                 <?php
+                     function var_dumb($var) {
+                        echo "<pre>" , var_dump($var) , "</pre>";
+                    }
                     function makeAListFromArray($arr) {
                         echo "<ul>";
                         foreach($arr as $val) {
@@ -135,7 +138,14 @@ $arrayB = [85, "toi", 95, "la", 65, 94, 85, "avec", 37, "chat"];
             <h2 class="exercice-ttl">Question 5</h2>
             <p class="exercice-txt">Déclarer une fonction qui prend en paramètre un tableau d'entiers ou de chaînes de caractères et retourne le tableau sans doublons</p>
             <div class="exercice-sandbox">
-                
+                <?php
+                    function cleanArrayFromDuplicate($arr) {
+                        $result = array_unique($arr);
+                        var_dumb($result);
+                    }
+                    cleanArrayFromDuplicate($arrayA);
+                    cleanArrayFromDuplicate($arrayB);
+                    ?>
             </div>
         </section>
 
