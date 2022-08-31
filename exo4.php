@@ -94,7 +94,17 @@ $arrayB = [85, "toi", 95, "la", 65, 94, 85, "avec", 37, "chat"];
             <h2 class="exercice-ttl">Question 4</h2>
             <p class="exercice-txt">Déclarer une fonction qui prend en paramètre un tableau d'entiers. La fonction doit retourner les valeurs du tableau mulipliées par 2.</p>
             <div class="exercice-sandbox">
-
+                <?php
+                    function multiplyValuesOfArrayBy2($arr) {
+                        echo "<ul>";
+                        foreach($arr as $val) {
+                            $val *= 2;
+                            echo "<li>$val</li>";
+                        }
+                        echo "</ul>";
+                    }
+                    multiplyValuesOfArrayBy2($array);
+                ?>
             </div>
         </section>
 
