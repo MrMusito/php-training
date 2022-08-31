@@ -32,6 +32,7 @@
                 <?php
                     $firstname = "Samir";
                     $score = 327;
+                    echo "<p>$firstname a obtenu $score point à cette partie.</p>";
                 ?>
                 <?= "<p>$firstname a obtenu $score points à cette partie.</p>" ?>;
             </div>
@@ -50,6 +51,8 @@
                 $priceProduct2 = 2.90;
                 $nameProduct3 = "potion";
                 $priceProduct3 = 5.20;
+
+                echo "<li>$nameProduct1 : $priceProduct1 €</li><li>$nameProduct2 : $priceProduct2 €</li><li>$nameProduct3 : $priceProduct3 €</li>"
                 ?>
                 <ul>
                     <?php
@@ -67,6 +70,7 @@
             <p class="exercice-txt">Calculer le montant total de la commande des produits ci-dessus avec les quantités ci-dessous et appliquez lui une remise de 10%.</p>
             <div class="exercice-sandbox">
             <?php
+
                  $quantityProduct1 = 1;
                  $quantityProduct2 = 10;
                  $quantityProduct3 = 4;
@@ -75,6 +79,18 @@
                 $total = ($quantityProduct1 * $priceProduct1 + $quantityProduct2 * $priceProduct2 + $quantityProduct3 * $priceProduct3) * 0.9;
                 echo "<p>Le prix total de la commande est de : $total</p>"
              ?>
+            <?php
+                $quantityProduct1 = 1;
+                $quantityProduct2 = 10;
+                $quantityProduct3 = 4;
+
+                $totalqty = $priceProduct1 * $quantityProduct1;
+                $totalqty += $priceProduct2 * $quantityProduct2;
+                $totalqty += $priceProduct3 * $quantityProduct3;
+                $totalqty *= (100 - 10) / 100;
+                echo "<p>$totalqty €</p>";
+            ?>
+
             </div>
         </section>
 
@@ -84,9 +100,8 @@
             <h2 class="exercice-ttl">Question 4</h2>
             <p class="exercice-txt">Affichez le prix le plus élevé des 3 produits ci-dessus.</p>
             <div class="exercice-sandbox">
-                <?php
-                    echo max($priceProduct1, $priceProduct2, $priceProduct3);
-                ?>
+
+                <?=max($priceProduct1, $priceProduct2, $priceProduct3)?>
 
             </div>
         </section>
@@ -102,17 +117,12 @@
             <p class="exercice-txt">Affichez dans une liste HTML le nom des produits de la question 2 qui sont présents dans la phrase : "<?=$text1?>"</p>
             <div class="exercice-sandbox">
                 <ul>
-                    <?php
-                        if (str_contains($text1, $nameProduct1)) {
-                            echo "<li>$nameProduct1</li>";
-                        }
-                        if (str_contains($text1, $nameProduct2)) {
-                            echo "<li>$nameProduct2</li>";
-                        }
-                        if (str_contains($text1, $nameProduct3)) {
-                            echo "<li>$nameProduct3</li>";
-                        }
-                    ?>
+
+                <?php
+                    if(str_contains($text1, $nameProduct1)) echo "<li>$nameProduct1</li>";
+                    if(str_contains($text1, $nameProduct2)) echo "<li>$nameProduct2</li>";
+                    if(str_contains($text1, $nameProduct3)) echo "<li>$nameProduct3</li>";
+                ?>
                 </ul>
 
             </div>
@@ -123,7 +133,10 @@
             <h2 class="exercice-ttl">Question 6</h2>
             <p class="exercice-txt">Parmis les scores suivants, affichez le prénom des joueurs qui ont obtenus entre 50 et 150 points.</p>
             <div class="exercice-sandbox">
+
+                <ul>
                 <?php
+
 
                     $namePlayer1 = "Tim";
                     $scorePlayer1 = 67;
@@ -144,7 +157,51 @@
                     echo $scorePlayer3 > 50 && $scorePlayer3 < 150 ? "<li>$namePlayer3</li>" : "";
                     echo $scorePlayer4 > 50 && $scorePlayer4 < 150 ? "<li>$namePlayer4</li>" : "";
                     echo $scorePlayer5 > 50 && $scorePlayer5 < 150 ? "<li>$namePlayer5</li>" : "";
+                
+
+                $namePlayer1 = "Tim";
+                $scorePlayer1 = 67;
+                $namePlayer2 = "Morgan";
+                $scorePlayer2 = 198;
+                $namePlayer3 = "Hamed";
+                $scorePlayer3 = 21;
+                $namePlayer4 = "Camille";
+                $scorePlayer4 = 134;
+                $namePlayer5 = "Kevin";
+                $scorePlayer5 = 103;
+                
+                if ($scorePlayer1 > 50 && $scorePlayer1 < 150) {
+                    echo "<li>$namePlayer1</li>";
+                }
+                if ($scorePlayer2 > 50 && $scorePlayer2 < 150) {
+                    echo "<li>$namePlayer2</li>";
+                }
+                if ($scorePlayer3 > 50 && $scorePlayer3 < 150) {
+                    echo "<li>$namePlayer3</li>";
+                }
+                if ($scorePlayer4 > 50 && $scorePlayer4 < 150) {
+                    echo "<li>$namePlayer4</li>";
+                }
+                if ($scorePlayer5 > 50 && $scorePlayer5 < 150) {
+                    echo "<li>$namePlayer5</li>";
+                }
+
+                $scores = [
+                    $namePlayer1 => $scorePlayer1,
+                    $namePlayer2 => $scorePlayer2,
+                    $namePlayer3 => $scorePlayer3,
+                    $namePlayer4 => $scorePlayer4,
+                    $namePlayer5 => $scorePlayer5
+                ];
+
+                foreach($scores as $name => $point) {
+                    if ($point > 50 && $point < 150) {
+                        echo "<li>$name</li>";
+                    }
+                }
+
                 ?>
+
                 </ul>
             </div>
         </section>
@@ -156,6 +213,7 @@
             <p class="exercice-txt">En réutilisant les scores de la question pécédente, afficher le nom du joueur ayant obtenu le plus grand score.</p>
             <div class="exercice-sandbox">
                 <?php
+
                     $score = $scorePlayer1;
                     $winner = $namePlayer1;
                     if ($scorePlayer2 > $score) {
@@ -175,9 +233,54 @@
                         $score = $scorePlayer5;
                     } 
                     
-                    echo "<p>Le meilleur est $winner avec $score points."
-                ?>
+                    echo "<p>Le meilleur est $winner avec $score points.";
                 
+
+                // $maxScore = $scorePlayer1;
+                // $topPlayer = $namePlayer1;
+
+                
+                // if($scorePlayer2>$maxScore){
+                //     $maxScore=$scorePlayer2;
+                //     $topPlayer=$namePlayer2;
+                // }
+                
+                // if($scorePlayer3>$maxScore){
+                //     $maxScore=$scorePlayer3;
+                //     $topPlayer=$namePlayer3;
+                // }
+                
+                // if($scorePlayer4>$maxScore){
+                //     $maxScore=$scorePlayer4;
+                //     $topPlayer=$namePlayer4;
+                // }
+                
+                // if($scorePlayer5>$maxScore){
+                //     $maxScore=$scorePlayer5;
+                //     $topPlayer=$namePlayer5;
+                // }
+                // echo "<p>Le meilleur est $topPlayer avec $maxScore.</p>";
+
+
+                // foreach($scores as $playerName=>$score){
+                //     if(!isset($maxScore) || $score>$maxScore){
+                //         $maxScore=$score;
+                //         $topPlayer=$playerName;
+                //     }
+                // }
+                // echo "<p>Le meilleur est $topPlayer avec $maxScore.</p>";
+
+                // $maxScore = max($scores);
+                
+                // foreach($scores as $playerName => $score){
+                //     if ($maxScore === $score) {
+                //         $topPlayer = $playerName;
+                //     }
+                // }
+                
+                // echo "<p>Le meilleur est $topPlayer avec $maxScore.</p>";
+
+                ?>
             </div>
         </section>
 
@@ -188,33 +291,43 @@
             <p class="exercice-txt">Affichez le prénom du joueur le plus long en nombre de caractères.</p>
             <div class="exercice-sandbox">
                 <?php
-                    $player1 = strlen($namePlayer1);
-                    $player2 = strlen($namePlayer2);
-                    $player3 = strlen($namePlayer3);
-                    $player4 = strlen($namePlayer4);
-                    $player5 = strlen($namePlayer5);
-                    $longestName = "";
-                    if ($player1 > $player2) {
-                        $longestName = $namePlayer1;
-                    } else {
-                        $longestName = $namePlayer2;
-                    };
-                    if ($player2 > $player3) {
-                        $longestName = $namePlayer2;
-                    } else {
-                        $longestName = $namePlayer3;
-                    };
-                    if ($player3 > $player4) {
-                        $longestName = $namePlayer3;
-                    } else {
-                        $longestName = $namePlayer4;
-                    };
-                    if ($player4 > $player5) {
-                        $longestName = $namePlayer4;
-                    } else {
-                        $longestName = $namePlayer5;
-                    };
-                    echo $longestName;
+
+//                     $player1 = strlen($namePlayer1);
+//                     $player2 = strlen($namePlayer2);
+//                     $player3 = strlen($namePlayer3);
+//                     $player4 = strlen($namePlayer4);
+//                     $player5 = strlen($namePlayer5);
+//                     $longestName = "";
+//                     if ($player1 > $player2) {
+//                         $longestName = $namePlayer1;
+//                     } else {
+//                         $longestName = $namePlayer2;
+//                     };
+//                     if ($player2 > $player3) {
+//                         $longestName = $namePlayer2;
+//                     } else {
+//                         $longestName = $namePlayer3;
+//                     };
+//                     if ($player3 > $player4) {
+//                         $longestName = $namePlayer3;
+//                     } else {
+//                         $longestName = $namePlayer4;
+//                     };
+//                     if ($player4 > $player5) {
+//                         $longestName = $namePlayer4;
+//                     } else {
+//                         $longestName = $namePlayer5;
+//                     };
+//                     echo $longestName;
+
+                // $maxName = max(strlen($namePlayer1),strlen($namePlayer2),strlen($namePlayer3),strlen($namePlayer4),strlen($namePlayer5));
+                $maxName = max(array_map("strlen", array_keys($scores)));
+                foreach($scores as $playerName => $score){
+                    if ($maxName === strlen($playerName)) {
+                        echo $playerName;
+                    }
+                }
+
                 ?>
             </div>
         </section>
@@ -231,7 +344,6 @@
                 <li>Kevin : 31 ans</li>
             </ul>
             <p class="exercice-txt">Afficher la valeur de cette variable avec tous les détails.</p>
-            <pre class="exercice-sandbox">
                 <?php
                     $players = [
                         ["firstname" => $namePlayer1, "score" =>  $scorePlayer1, "Age" => 25 ],
@@ -240,9 +352,9 @@
                         ["firstname" => $namePlayer4, "score" =>  $scorePlayer4, "Age" => 47 ],
                         ["firstname" => $namePlayer5, "score" =>  $scorePlayer5, "Age" => 31 ]
                         ];
-                        var_dump($players);
+                        echo "<pre>" , var_dump($players) , "</pre>";
                 ?>
-            </pre>
+
         </section>
 
         <!-- QUESTION 10 -->
@@ -252,9 +364,13 @@
             <div class="exercice-sandbox">
                 <?php
                     
-                        foreach($players as $player) { 
-                            if ($player["age"] )
+                    foreach($players as $player) {
+                        if(!isset($minA) || $player["Age"] < $minA) {
+                            $minA = $player["Age"];
+                            $youngP = $player["firstname"];
                         }
+                    }
+                    echo "<p>Le plus jeune est $youngP ($minA ans).</p>";
                 ?>
             </div>
         </section>

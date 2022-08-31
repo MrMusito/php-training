@@ -33,7 +33,9 @@ $fruits = ["fraise", "banane", "pomme", "cerise", "abricot", "pêche", "ananas",
             <h2 class="exercice-ttl">Question 1</h2>
             <p class="exercice-txt">Afficher le détail de tout le tableau de fruits</p>
             <div class="exercice-sandbox">
-
+                <?php
+                    echo "<pre>" , var_dump($fruits) , "</pre>";
+                ?>
             </div>
         </section>
 
