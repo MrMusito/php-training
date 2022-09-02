@@ -46,7 +46,21 @@ try {
             <h2 class="exercice-ttl">Question 1</h2>
             <p class="exercice-txt">Récupérer dans un tableau puis affichez l'ensemble des plateformes de diffusion des séries. Afficher les par ordre alphabétique.</p>
             <div class="exercice-sandbox">
-                
+                <?php
+                    function var_dumb($var) {
+                        echo "<pre>" , var_dump($var) , "</pre>";
+                    }
+
+                    var_dumb($series);
+                    ?>
+                        <?php
+                            $array =[];
+                            foreach($series as $platform) {
+                                $array[] = $platform["availableOn"]; 
+                            }
+                            asort($array);
+                            var_dumb($array);
+                    ?>
             </div>
         </section>
 
