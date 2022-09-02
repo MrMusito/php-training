@@ -40,16 +40,14 @@ $arrayB = [85, "toi", 95, "la", 65, 94, 85, "avec", 37, "chat"];
                      function var_dumb($var) {
                         echo "<pre>" , var_dump($var) , "</pre>";
                     }
-
-                    function makeAListFromArray(array $arr): string {
-                         $var = "<ul>";
+                    function makeAListFromArray($arr) {
+                        echo "<ul>";
                         foreach($arr as $val) {
-                            $var .= "<li>$val</li>";
+                            echo "<li>$val</li>";
                         }
-                        $var .= "</ul>";
-                        return $var;
+                        echo "</ul>";
                     }
-                    echo makeAListFromArray($array);
+                    makeAListFromArray($array);
                 ?>
             </div>
         </section>
@@ -60,17 +58,16 @@ $arrayB = [85, "toi", 95, "la", 65, 94, 85, "avec", 37, "chat"];
             <p class="exercice-txt">Déclarer une fonction qui prend en paramètre un tableau d'entiers et retourne uniquement les valeurs paires. Afficher les valeurs du tableau sous la forme d'une liste HTML.</p>
             <div class="exercice-sandbox">
                     <?php
-                        function getEvenFromArray(array $arr): string {
-                            $var = "<ul>";
+                        function getEvenFromArray($arr) {
+                            echo "<ul>";
                             foreach($arr as $val) {
                                 if($val%2 === 0){
-                                    $var .= "<li>$val</li>";
+                                    echo "<li>$val</li>";
                                 }
                             }
-                            $var .= "</ul>";
-                            return $var;
+                            echo "</ul>";
                         }
-                        echo getEvenFromArray($array);
+                        getEvenFromArray($array);
                     ?>
             </div>
         </section>
@@ -81,16 +78,16 @@ $arrayB = [85, "toi", 95, "la", 65, 94, 85, "avec", 37, "chat"];
             <p class="exercice-txt">Déclarer une fonction qui prend en paramètre un tableau d'entiers et retourne uniquement les entiers d'index pair</p>
             <div class="exercice-sandbox">
                 <?php
-                    function getEvenIndexFromArray(array $arr):array {
-                        $var = [];
+                    function getEvenIndexFromArray($arr) {
                         foreach($arr as $ind => $val) {
+                            echo "<ul>";
                             if($ind%2 === 0) {
-                                $var[$ind] = $val;
+                                echo "<li>$val</li>";
                             }
-                        };
-                        return $var;
+                            echo "</ul>";
+                        }
                     }
-                    var_dumb(getEvenIndexFromArray($array));
+                    getEvenIndexFromArray($array);
                 ?>
             </div>
         </section>
@@ -101,35 +98,37 @@ $arrayB = [85, "toi", 95, "la", 65, 94, 85, "avec", 37, "chat"];
             <p class="exercice-txt">Déclarer une fonction qui prend en paramètre un tableau d'entiers. La fonction doit retourner les valeurs du tableau mulipliées par 2.</p>
             <div class="exercice-sandbox">
                 <?php
-                    function multiplyValuesOfArrayBy2($arr): array {
-                        $var = [];
-                        foreach($arr as $ind => $val) {
+                    function multiplyValuesOfArrayBy2($arr) {
+                        echo "<ul>";
+                        foreach($arr as $val) {
                             $val *= 2;
-                            $var[$ind] = $val;
+                            echo "<li>$val</li>";
                         }
-                        return $var;
+                        echo "</ul>";
                     }
-                    var_dumb(multiplyValuesOfArrayBy2($array));
+                    multiplyValuesOfArrayBy2($array);
                 ?>
             </div>
         </section>
 
-        <!-- QUESTION 4 BIS -->
+        <!-- QUESTION 4 -->
         <section class="exercice">
-            <h2 class="exercice-ttl">Question 4 bis</h2>
+            <h2 class="exercice-ttl">Question 4</h2>
             <p class="exercice-txt">Déclarer une fonction qui prend en paramètre un tableau d'entiers et un entier. La fonction doit retourner les valeurs du tableau divisées par le second paramètre</p>
             <div class="exercice-sandbox">
                 <?php
-                    
-                    function divideValuesByIt(array $arr, int $it): array {
-                        $var = [];
-                        foreach($arr as $ind => $val) {
-                            $output = $val / $it;
-                            $var[$ind] = $output;
-                        }
-                        return $var;
+                    function divideValuesByIt1($arr, $it) {
+                        return ($arr / $it);
                     }
-                    var_dumb(divideValuesByIt($array, 2));
+                    function divideValuesByIt($arr, $it) {
+                        echo "<ul>";
+                        foreach($arr as $val) {
+                            $output = $val / $it;
+                            echo "<li>$output</li>";
+                        }
+                        echo "</ul>";
+                    }
+                    divideValuesByIt($array, 2);
                 ?>
             </div>
         </section>
@@ -140,12 +139,12 @@ $arrayB = [85, "toi", 95, "la", 65, 94, 85, "avec", 37, "chat"];
             <p class="exercice-txt">Déclarer une fonction qui prend en paramètre un tableau d'entiers ou de chaînes de caractères et retourne le tableau sans doublons</p>
             <div class="exercice-sandbox">
                 <?php
-                    function cleanArrayFromDuplicate(array $arr): array {
+                    function cleanArrayFromDuplicate($arr) {
                         $result = array_unique($arr);
-                        return $result;
+                        var_dumb($result);
                     }
-                    var_dumb(cleanArrayFromDuplicate($arrayA));
-                    var_dumb(cleanArrayFromDuplicate($arrayB));
+                    cleanArrayFromDuplicate($arrayA);
+                    cleanArrayFromDuplicate($arrayB);
                     ?>
             </div>
         </section>
@@ -156,11 +155,11 @@ $arrayB = [85, "toi", 95, "la", 65, 94, 85, "avec", 37, "chat"];
             <p class="exercice-txt">Déclarer une fonction qui prend en paramètre 2 tableaux et retourne un tableau représentant l'intersection des 2</p>
             <div class="exercice-sandbox">
                 <?php
-                function intersect2Arrays(array $arr1, array $arr2): array {
+                function intersect2Arrays($arr1, $arr2){
                     $arrayC = array_intersect($arr1, $arr2);
-                    return $arrayC;
+                    var_dumb($arrayC);
                 }
-                var_dumb(intersect2Arrays($arrayA, $arrayB));
+                intersect2Arrays($arrayA, $arrayB);
                 ?>
             </div>
         </section>
@@ -171,31 +170,22 @@ $arrayB = [85, "toi", 95, "la", 65, 94, 85, "avec", 37, "chat"];
             <p class="exercice-txt">Déclarer une fonction qui prend en paramètre 2 tableaux et retourne un tableau des valeurs du premier tableau qui ne sont pas dans le second</p>
             <div class="exercice-sandbox">
                 <?php
-                function diffBetween2Arrays(array $arr1, array $arr2): array {
+                function diffBetween2Arrays($arr1, $arr2){
                     $arrayD = array_diff($arr1, $arr2);
-                    return $arrayD;
+                    var_dumb($arrayD);
                 }
-                var_dumb(diffBetween2Arrays($arrayA, $arrayB));
+                diffBetween2Arrays($arrayA, $arrayB);
                 ?>
             </div>
         </section>
-        
-        
+
+                    
         <!-- QUESTION 8 -->
         <section class="exercice">
             <h2 class="exercice-ttl">Question 8</h2>
             <p class="exercice-txt">Réécrire la fonction précédente pour lui ajouter un paramètre booléen facultatif. Si celui-ci est à true, le tableau retourné sera sans doublons</p>
             <div class="exercice-sandbox">
-                <?php
-                    function diffBetween2ArraysIfTrue(array $arr1, array $arr2, bool $double = false): array {
-                        $arrayD = array_diff($arr1, $arr2);
-                        if($double === true) {
-                            return cleanArrayFromDuplicate($arrayD);
-                        }
-                        return $arrayD;
-                    }
-                    var_dumb(diffBetween2ArraysIfTrue($arrayA, $arrayB, true));
-                ?>
+
             </div>
         </section>
 
@@ -205,18 +195,7 @@ $arrayB = [85, "toi", 95, "la", 65, 94, 85, "avec", 37, "chat"];
             <h2 class="exercice-ttl">Question 9</h2>
             <p class="exercice-txt">Déclarer une fonction qui prend en paramètre un tableau et un entier et retourne les n premiers éléments du tableau.</p>
             <div class="exercice-sandbox">
-                <?php
-                    function getNLineOfArray(array $arr, int $n): array {
-                        foreach($arr as $ind => $val) {
-                            $arr1 = [];
-                            if(count($arr) < $n) {
-                               $arr1 = array_push($arr, $val); 
-                            }
-                        }
-                        return $arr1;
-                    }
-                    var_dumb($array, 3);
-                ?>
+                
             </div>
         </section>
     </div>
