@@ -51,10 +51,10 @@ try {
                         echo "<pre>" , var_dump($var) , "</pre>";
                     }
 
-                    var_dumb($series);
+                    // var_dumb($series);
                     ?>
                         <?php
-                            $array =[];
+                            $array = [];
                             foreach($series as $platform) {
                                 $array[] = $platform["availableOn"]; 
                             }
@@ -70,7 +70,30 @@ try {
             <h2 class="exercice-ttl">Question 2</h2>
             <p class="exercice-txt">Récupérer dans un tableau puis affichez l'ensemble des styles de séries. Afficher les par ordre alphabétique.</p>
             <div class="exercice-sandbox">
-                
+                <?php
+                    $array2 = [];
+                    $styleList = [];
+                    foreach($series as $styles) {
+                        $array2[] = $styles["styles"];
+                        foreach($array2 as $style => $val) {
+                            $styleList[] = $val;
+                        }
+                    }
+                                        
+                    function getValues($array){
+                        $table = [];
+                        foreach($array as $key => $value){
+                            if(is_array($value)){
+                                foreach($value as $val) {
+                                    $table[] = array_pop($value);
+                                }
+                            }
+                        }
+                        asort($table);
+                        return array_unique($table);
+                    }
+                    var_dumb(getValues($array2));
+                ?>
             </div>
         </section>
 
