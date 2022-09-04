@@ -79,7 +79,7 @@ try {
                             $styleList[] = $val;
                         }
                     }
-                                        
+
                     function getValues($array){
                         $table = [];
                         foreach($array as $key => $value){
@@ -104,7 +104,12 @@ try {
             <p class="exercice-txt">L'image et le titre de la série sont des liens menant à cette page avec en paramètre "serie", l'identifiant de la série</p>
             <p class="exercice-txt">Afficher une seule série par ligne sur les plus petits écrans, 2 séries par ligne sur les écrans intermédiaires et 4 séries par ligne sur un écran d'ordinateur.</p>
             <div class="exercice-sandbox">
-
+                <?php
+                    foreach($series as $image) {
+                        $img = $image["image"];
+                        echo '<img src='.$img.' '.'alt="TV show image">';
+                    }
+                ?>
             </div>
         </section>
 
