@@ -41,13 +41,14 @@ $arrayB = [85, "toi", 95, "la", 65, 94, 85, "avec", 37, "chat"];
                         echo "<pre>" , var_dump($var) , "</pre>";
                     }
                     function makeAListFromArray($arr) {
-                        echo "<ul>";
+                        $var = "<ul>";
                         foreach($arr as $val) {
-                            echo "<li>$val</li>";
+                            $var .= "<li>$val</li>";
                         }
-                        echo "</ul>";
+                        $var .= "</ul>";
+                        return $var;
                     }
-                    makeAListFromArray($array);
+                    echo makeAListFromArray($array);
                 ?>
             </div>
         </section>

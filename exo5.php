@@ -92,6 +92,7 @@ try {
                         asort($table);
                         return array_unique($table);
                     }
+
                     var_dumb(getValues($array2));
                 ?>
             </div>
@@ -104,12 +105,19 @@ try {
             <p class="exercice-txt">L'image et le titre de la série sont des liens menant à cette page avec en paramètre "serie", l'identifiant de la série</p>
             <p class="exercice-txt">Afficher une seule série par ligne sur les plus petits écrans, 2 séries par ligne sur les écrans intermédiaires et 4 séries par ligne sur un écran d'ordinateur.</p>
             <div class="exercice-sandbox">
-                <?php
-                    foreach($series as $image) {
-                        $img = $image["image"];
-                        echo '<img src='.$img.' '.'alt="TV show image">';
-                    }
-                ?>
+                <div class="display">
+                    <?php
+                        foreach($series as $serie) {
+                            $actors1 = [];
+                            $img = $serie["image"];
+                            $name = $serie["name"];
+                            $actors1[] = $serie["actors"];
+                            echo '<img src='.$img.' '.'alt="TV show image">'.'<h2>'.$name.'</h2>';
+                        }
+
+                        var_dumb(getValues($actors1));
+                    ?>
+                </div>
             </div>
         </section>
 
