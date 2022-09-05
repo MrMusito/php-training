@@ -34,6 +34,11 @@ try {
     exit;
 }
 
+function getHtmlFromArray(array $array) :string {
+    $valueToLi = fn($v) => "<li>$v</li>";
+    return "<ul>".implode("", array_map($valueToLi, $array))."</ul>";
+}
+
 ?>
 
         <section class="exercice">
@@ -95,6 +100,24 @@ try {
 
                     var_dumb(getValues($array2));
                 ?>
+
+                <?php
+                     $styles = [];
+                     foreach ($series as $serie) {
+                         foreach ($serie["styles"] as $style) {
+                             $styles[] = $style;
+                         }
+                     }
+
+                     // ---------------
+
+                     $styles = array_unique(array_merge(...array_map(fn($s) => $s["styles"], $series)));
+
+                     sort($styles);
+
+                     echo getHtmlFromArray($styles);
+
+                 ?>
             </div>
         </section>
 
@@ -107,15 +130,20 @@ try {
             <div class="exercice-sandbox">
                 <div class="display">
                     <?php
+                        $actors1 = [];
                         foreach($series as $serie) {
-                            $actors1 = [];
                             $img = $serie["image"];
                             $name = $serie["name"];
-                            $actors1[] = $serie["actors"];
+                            $actors = $serie["actors"];
                             echo '<img src='.$img.' '.'alt="TV show image">'.'<h2>'.$name.'</h2>';
+                            echo getHtmlFromArray($actors);
+                            // var_dumb($actors1);
+                            // foreach($actors as $actor) {
+                            //     $actors1[] = $actor;
+                            //     echo getHtmlFromArray($actors1);
+                            // }
                         }
-
-                        var_dumb(getValues($actors1));
+                        
                     ?>
                 </div>
             </div>
