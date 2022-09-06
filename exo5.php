@@ -129,6 +129,7 @@ function getHtmlFromArray(array $array) :string {
             <p class="exercice-txt">Afficher une seule série par ligne sur les plus petits écrans, 2 séries par ligne sur les écrans intermédiaires et 4 séries par ligne sur un écran d'ordinateur.</p>
             <div class="exercice-sandbox">
                 <div class="display">
+                    <ul>
                     <?php
                         $actors1 = [];
                         foreach($series as $serie) {
@@ -141,14 +142,10 @@ function getHtmlFromArray(array $array) :string {
                             echo getHtmlFromArray($createdBy);
                             echo '<h3>Actors:</h3>';
                             echo getHtmlFromArray($actors);
-                            // var_dumb($actors1);
-                            // foreach($actors as $actor) {
-                            //     $actors1[] = $actor;
-                            //     echo getHtmlFromArray($actors1);
-                            // }
                         }
                         
                     ?>
+                    </ul>
                 </div>
             </div>
         </section>
