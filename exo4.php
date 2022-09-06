@@ -196,7 +196,22 @@ $arrayB = [85, "toi", 95, "la", 65, 94, 85, "avec", 37, "chat"];
             <h2 class="exercice-ttl">Question 9</h2>
             <p class="exercice-txt">Déclarer une fonction qui prend en paramètre un tableau et un entier et retourne les n premiers éléments du tableau.</p>
             <div class="exercice-sandbox">
+<<<<<<< HEAD
                 
+=======
+                <?php
+                    function getNLineOfArray(array $arr, int $n): array {
+                        foreach($arr as $ind => $val) {
+                            $arr1 = [];
+                            if(count($arr) < $n) {
+                               array_push($arr1, $val); 
+                            }
+                        }
+                        return $arr1;
+                    }
+                    var_dumb($array, 3);
+                ?>
+>>>>>>> 8a7e8b9f94321a09d5917c9c8c57b97b6100bf4f
             </div>
         </section>
     </div>
