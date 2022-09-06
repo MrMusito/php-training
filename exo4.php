@@ -210,7 +210,7 @@ $arrayB = [85, "toi", 95, "la", 65, 94, 85, "avec", 37, "chat"];
                         foreach($arr as $ind => $val) {
                             $arr1 = [];
                             if(count($arr) < $n) {
-                               $arr1 = array_push($arr, $val); 
+                               array_push($arr1, $val); 
                             }
                         }
                         return $arr1;
