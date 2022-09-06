@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.css?<?=time()?>">
     <title>Introduction PHP - Exo 5</title>
 </head>
 <body class="dark-template">
@@ -135,7 +135,11 @@ function getHtmlFromArray(array $array) :string {
                             $img = $serie["image"];
                             $name = $serie["name"];
                             $actors = $serie["actors"];
-                            echo '<img src='.$img.' '.'alt="TV show image">'.'<h2>'.$name.'</h2>';
+                            $createdBy = $serie["createdBy"];
+                            echo '<a href="?serie="'.$serie["id"].'""><img src='.$img.' '.'alt="TV show image">'.'<h2>'.$name.'</h2></a>';
+                            echo '<h3>Created by:</h3>';
+                            echo getHtmlFromArray($createdBy);
+                            echo '<h3>Actors:</h3>';
                             echo getHtmlFromArray($actors);
                             // var_dumb($actors1);
                             // foreach($actors as $actor) {
